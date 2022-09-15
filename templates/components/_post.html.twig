@@ -1,0 +1,14 @@
+<div class="card p-0 mb-4" style="width: 20rem;">
+    {% if post.image  %}
+        <img src="{{ vich_uploader_asset(post,'imageFile') | imagine_filter('thumb') }}" class="card-img-top" alt="">
+    {% else %}
+        <img src="{{ '/images/posts_images/empty.jpg' | imagine_filter('thumb') }}" class="card-img-top" alt="">
+    {% endif %}
+    <div class="card-body">
+        <h4 class="card-title">{{ post.title | upper }}</h4>
+        <p class="card-text">{{ post.description}}</p>
+        <a href="{{ path('property.show',{id: post.id, slug: post.slug}) }}" class="btn btn-primary">see more</a>
+
+    </div>
+
+</div>

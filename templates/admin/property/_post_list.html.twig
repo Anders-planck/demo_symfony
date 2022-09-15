@@ -1,0 +1,14 @@
+<tr>
+    <th scope="row">{{ post.id }}</th>
+    <td>{{ post.title }}</td>
+    <td><span class="{{ post.isPosted ? 'text-success' : 'text-danger' }} fw-bold">{{ post.isPosted ? 'ON' : 'OFF' }}</span></td>
+    <td>
+        <a href="{{ path('property.show',{id: post.id, slug: post.slug}) }}" class="btn btn-light">see more</a>
+        <a href="{{ path('admin.property.edit',{id: post.id}) }}" class="btn btn-primary">Edit</a>
+        <form method="post" action="{{ path('admin.property.delete',{id: post.id}) }}" style="display: inline-block">
+            <input type="hidden" name="_method" value="DELETE" />
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}">
+            <button class="btn btn-danger">delete</button>
+        </form>
+    </td>
+</tr>

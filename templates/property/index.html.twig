@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Posts HomeController!{% endblock %}
+
+{% block body %}
+        <h1>All Posts </h1>
+        <div  class=" row row-cols-3 gap-2">
+            {% for post in posts %}
+               {{ include('components/_post.html.twig') }}
+            {% endfor %}
+        </div>
+{% endblock %}

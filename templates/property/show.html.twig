@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Post  HomeController!{% endblock %}
+
+{% block body %}
+        <div class="w-75 mx-auto">
+            {% if post.image  %}
+                <img src="{{ vich_uploader_asset(post,'imageFile') | imagine_filter('medium') }}" alt="card-img-top" class="img-fluid rounded mx-auto d-block my-3">
+            {% endif %}
+            <div class=" my-4">
+                <h1 class="card-title">{{ post.title | upper }}</h1>
+                <p class="card-text">{{ post.description | nl2br  }}</p>
+            </div>
+            <post-comments data-post="{{ post.id }}" data-user="{{ app.user ? app.user.id : 0 }}"></post-comments>
+        </div>
+{% endblock %}
